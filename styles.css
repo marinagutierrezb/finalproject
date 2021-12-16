@@ -1,98 +1,61 @@
-@import url ('https://fonts.googleapis.com/css2?family=Grandstander:wght@300&display=swap');
+* {
+    padding: 10;
+    margin: 0;
+    box-sizing: border-box;
+  
+
+}
+* h1 {
+  color: white; 
+
+}
 
 body {
-	min-height: 30vh;
-  background-color: #364156;
-  display: flex;
-  font-family: 'Grandstander', cursive;
-  justify-content: center;
-}
-.titleBanner span {
-  text-align: top;
-	background-image: url (https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80);
-	text-shadow: 0px 0px 15px #fff;
-}
-.titleBanner h1 {
-	text-position: center;
-	text-color: #CDCDCD;
-	text-size: 20px;
-
-}
-.titleBanner h4 {
-	text-position: center;
-	text-color: #CDCDCD;
-	text-size: 10px;
+    height: 100vh;
+    display: flex;
+    background: #393D47;
 }
 
-.container {
-  background-color: #DFF8EB;
-  margin: auto;
-  padding: 20px;
-  border: 5px solid #DD6E42;
-	position: absolute;
-	top: 5%;
-	bottom: 0;
-	left: 10%;
-	width: 590px;
-	height: 600px;
-	box-shadow: 0px 0px 15px #fff;
+.memory-game {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
 }
 
-
-
-.status-action {
-  display: flex;
-  margin-top: 25px;
-  font-size: 25px;
-  justify-content: space-around;
-  height: 30px;
-  color: #011638;
+.memory-card {
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
 }
 
-
-
-.grid {
-  background-color: #011638;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  margin-top: 15px;
+.memory-card:active{
+    transform: scale(.97);
+    transition: transform ß.2s;
 }
 
-.cell {
-  background-color: #C0D6DF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  height: 200px;
-  width: 200px;
+.memory-card.flip {
+    transform: rotateY(180deg);
 }
 
-.x::after {
-  content: '×';
-	text-color: #011638;
-  font-size: 225px;
+.front-face, 
+.back-face {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: #D3D3D3;
+    backface-visibility: hidden;
 }
 
-.o::after {
-  content: '○';
-  color: #DFF8EB;
-  font-size: 225px;
+.front-face {
+    transform: rotateY(180deg);
 }
 
-.won::after {
-  color: #DD6E42;
-}
-
-.reset {
-  cursor: pointer;
-}
-
-.reset:hover {
-  color: #DD6E42;
-}
-
-
-@media only screen and (max-width: 500px, max-height: 500px) {
-  .container {
