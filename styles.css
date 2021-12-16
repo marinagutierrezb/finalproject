@@ -1,3 +1,24 @@
+
+.front-face, 
+.back-face {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 7px;
+    background: #D3D3D3;
+    backface-visibility: hidden;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+
+
+
+
+
 * {
     padding: 10;
     margin: 0;
@@ -11,8 +32,8 @@
 }
 
 body {
-    height: 100vh;
-    display: flex;
+    height: 80vh;
+    display: justify;
     background: #393D47;
 }
 
@@ -43,19 +64,3 @@ body {
 .memory-card.flip {
     transform: rotateY(180deg);
 }
-
-.front-face, 
-.back-face {
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    position: absolute;
-    border-radius: 5px;
-    background: #D3D3D3;
-    backface-visibility: hidden;
-}
-
-.front-face {
-    transform: rotateY(180deg);
-}
-
